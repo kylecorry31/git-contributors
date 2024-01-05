@@ -76,8 +76,14 @@ for user, count in rows:
     total = count
     code = code_lines[user]
     translation = translation_lines[user]
-    percent_of_total = round(count / total_lines * 100, 2)
-    percent_of_code = round(code / total_code_lines * 100, 2)
+    if total == 0:
+        percent_of_total = 0
+    else:
+        percent_of_total = round(count / total_lines * 100, 2)
+    if total_code_lines == 0:
+        percent_of_code = 0
+    else:
+        percent_of_code = round(code / total_code_lines * 100, 2)
     if total_translation_lines == 0:
         percent_of_translation = 0
     else:
